@@ -45,7 +45,8 @@ const CreateScreen = () => {
                 user_id: user?.id,
                 amount: formattedAmount,
                 title,
-                category: selectedCategory
+                category: selectedCategory,
+                type: isExpense ? 'expense' : 'income'
             }))
 
             const response = await fetch(`${API_URL}/transactions`, {
@@ -58,6 +59,7 @@ const CreateScreen = () => {
                   title,
                   amount: formattedAmount,
                   category: selectedCategory,
+                  type: isExpense ? 'expense' : 'income'
                 }),
               });
 

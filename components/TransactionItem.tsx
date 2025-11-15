@@ -19,7 +19,6 @@ const TransactionItem = ({item, onDelete}: any) => {
     const isIncome = parseFloat(item.amount) > 0
     const iconName = CATEGORY_ICONS[item.category] || "pricetag-outline"
 
-    console.log(item)
   return (
     <View style={styles.transactionCard} key={item.id}>
       <TouchableOpacity style={styles.transactionContent}>
@@ -34,7 +33,7 @@ const TransactionItem = ({item, onDelete}: any) => {
           <Text
             style={[styles.transactionAmount, { color: isIncome ? COLORS.income : COLORS.expense }]}
           >
-            {isIncome ? "+" : "-"}${Math.abs(parseFloat(item.amount)).toFixed(2)}
+            {isIncome ? "+" : "-"}₹{Math.abs(parseFloat(item.amount)).toFixed(2)}
           </Text>
           <Text style={styles.transactionDate}>{formatDate(item.created_at)}</Text>
         </View>
